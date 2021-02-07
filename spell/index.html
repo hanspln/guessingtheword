@@ -1,0 +1,263 @@
+<html>
+<head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 100%;
+      background-color: #88dd88;
+      background-image: url("/assets/background.jpg");
+      background-clip: border-box;
+      background-size: cover;
+    }
+    div {
+    }
+    
+    .outer_box {
+      position: static;
+      height: 80vh;
+    }
+    .start_here {
+      font-size: 150%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      color: white;
+      margin-top:40vh;
+      border: 1px solid white; 
+      border-radius: 100px;
+      padding: 1rem;
+      width: 200px;
+    }
+    .score {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 10px;
+      margin-right:10px;
+      font-size:1.2rem;
+      background: pink;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4rem;      
+      background:  rgba(255,255,255,0.7);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0px 2px 30px #000;
+      max-width: 400px;
+
+    }
+    
+    .bg-blue {
+      background: #ee55ff;
+      border: 6px solid blue;
+    }
+
+    .input_phrase {
+      font-size: 2.5rem;
+      color: #550088;
+      font-weight: 600;
+      width: auto;
+      overflow: hidden;
+      
+    
+    }
+    .cover {
+      background-color: blue;
+      position: absolute;
+      height:90%;
+      width: 100%;
+      top:0; left: 0;
+      bottom:0; right:0;
+      z-index: 100;
+      box-shadow: 2px 2px 30px #777;
+
+    }
+    .hidden {
+      display:none
+    }
+
+    input {
+      background:  none;
+      outline: none;
+      border: none;
+      
+      border-bottom: 2px solid #7aae73;
+      max-width: 100%;
+
+
+    }
+    
+    .go {
+      border-radius: 100px;
+      background: #7aae73;
+      box-shadow: 0 1px 10px #7aae73;;
+      border: 1px solid #5a7e53;;
+      font-size: 1.5rem;
+      padding: 4px 10px;
+      color: white;
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100px;
+      display: block;
+    }
+
+    .circle {
+      background: white;
+      box-shadow: 1px 1px 4px #eee;
+      width: 40px;
+      padding: 0.5rem;
+      border-radius: 100px;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1rem
+    }
+    .circle:hover {
+      background: pink
+    }
+
+
+    
+    
+  </style>
+  <title>
+    Spella
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+  <div class="cover" id="cover"><div class="start_here">Click to start</div>
+
+
+
+
+</div>
+  <div class="outer_box">
+  <div class="container">
+    <div>
+      <audio id="audioplayer" autoplay>
+     <source id="source" src="/assets/audio/hello.m4a"> 
+  </audio>
+  
+  <div id="original_phrase" class="hidden">spin</div>
+  
+  <div id="play_again" class="input_phrase">
+    <div class="circle_outer">
+    <div class="circle">
+      <svg xmlns='http://w ww.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' width=40 height:40><title>Volume High</title><path d='M232 416a23.88 23.88 0 01-14.2-4.68 8.27 8.27 0 01-.66-.51L125.76 336H56a24 24 0 01-24-24V200a24 24 0 0124-24h69.75l91.37-74.81a8.27 8.27 0 01.66-.51A24 24 0 01256 120v272a24 24 0 01-24 24zm-106.18-80zm-.27-159.86zM320 336a16 16 0 01-14.29-23.19c9.49-18.87 14.3-38 14.3-56.81 0-19.38-4.66-37.94-14.25-56.73a16 16 0 0128.5-14.54C346.19 208.12 352 231.44 352 256c0 23.86-6 47.81-17.7 71.19A16 16 0 01320 336z'/><path d='M368 384a16 16 0 01-13.86-24C373.05 327.09 384 299.51 384 256c0-44.17-10.93-71.56-29.82-103.94a16 16 0 0127.64-16.12C402.92 172.11 416 204.81 416 256c0 50.43-13.06 83.29-34.13 120a16 16 0 01-13.87 8z'/><path d='M416 432a16 16 0 01-13.39-24.74C429.85 365.47 448 323.76 448 256c0-66.5-18.18-108.62-45.49-151.39a16 16 0 1127-17.22C459.81 134.89 480 181.74 480 256c0 64.75-14.66 113.63-50.6 168.74A16 16 0 01416 432z'/></svg>
+    </div>
+    </div>
+  </div>
+
+</div>
+  <div id="modified_phrase" class="overflow">
+    <input type="textfield" id="spelled_input" class="input_phrase"  autocorrect="off" autofocus autocapitalize="none" placeholder="..."></input>
+    
+  </div>
+
+  <div class="full">
+    <button class="go">Go</button>
+  </div>
+  
+  
+<div class="score">Score: <span id="score">0</span></div>
+  </div>
+
+</div>
+
+<script>
+const cover = document.getElementById('cover');
+
+var cont = document.getElementById('original_phrase');
+var cont_cont = document.getElementById('original_phrase').textContent;
+const audio = document.getElementById('audioplayer');
+const audio_inner = document.getElementById('play_again');
+var score = document.getElementById('score')
+let words = ['seng', 'bord', 'kniv', 'sofa', 'teppe','sko', 'bil'];
+
+var input_spelled = document.getElementById('spelled_input')
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+cover.addEventListener('click', function (event) {
+  cover.classList.add('hidden');
+  audio.play();
+  input_spelled.focus();
+
+})
+
+
+
+audio_inner.addEventListener('click', function (event) {
+  input_spelled.focus();
+  audio.play();
+  input_spelled.focus();
+
+
+});
+
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  const display_word = words[getRandomInt(words.length - 1)]
+  cont.innerHTML = display_word;
+
+    const url = "http://games.matatu.no/assets/audio/"
+    const audio_word = display_word
+    const play_audio_file = url + audio_word +".m4a"
+    audio.src = play_audio_file
+    audio.play();
+    console.log(display_word.length)
+    
+});
+
+
+input_spelled.addEventListener('change', function (event) {
+  if (cont.innerHTML == input_spelled.value) {
+    score.innerHTML = parseInt(score.innerHTML) + 1
+    input_spelled.value ="";
+    input_spelled.focus();
+    word_random = getRandomInt(words.length - 1)
+    word_index = words[word_random];
+    console.log(word_index.length)
+    cont.innerHTML = word_index;
+    
+    // words.splice(word_random, 1);
+    const get_word = words[getRandomInt(words.length - 1)]   
+    cont.innerHTML = get_word;
+
+    const url = "http://games.matatu.no/assets/audio/"
+    const audio_word = get_word
+    const play_audio_file = url + audio_word +".m4a"
+    
+    audio.src = play_audio_file
+    confetti.speed = 6;          
+    confetti.start(900, 400);
+    input_spelled.focus();
+    audio.play();
+    
+
+  } else {
+
+    
+    audio.play();
+    input_spelled.focus();
+  }
+
+  
+  
+});
+
+</script>
+
+</body>
+</html>

@@ -1,26 +1,65 @@
 <html>
 <head>
   <style>
-    body {
+  body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-size: 100%;
     }
+    div {
+      padding: 1rem;
+      margin-top: 5px;
+      border:  1px solid #adaadf;
+    }
+   .bg-red {
+      background: #ee5555;
+    }
+    .bg-blue {
+      background: #ee55ff;
+      border: 6px solid blue;
+    }
   </style>
   <title>
-    Can you guess the right word?
+    <!-- Can you guess the right word? -->
   </title>
 </head>
 <body>
-
-
-  <div id="origial_phrase">This is not here</div>
+<div >
+  <audio id="audioplayer" autoplay>
+    <source src="/assets/audio/hello.m4a">
+    </audio>
+  <div id="original_phrase">This <span>is</span> not here</div>
+</div>
   <div id="modified_phrase">This is [] here</div>
+  <div id="result" class="bg-red">result</div>
+  <div id="click">click</div>
+<script>
 
+const clicker = document.getElementById('click');
+const inner = document.getElementById('result');
+var cont = document.getElementById('original_phrase').innerHTML;
+var cont_cont = document.getElementById('original_phrase').textContent;
+const audio = document.getElementById('audioplayer');
+const audio_inner = document.getElementById('original_phrase');
 
+clicker.addEventListener('click', function (event) {
+  console.log('hey there');
+  inner.innerHTML = 'Right On';
+  inner.classList.add('bg-blue');
+  audio.play();
+  console.log(cont);
+  console.log(cont_cont);  
+})
 
+audio_inner.addEventListener('click', function (event) {
+  audio;
+  
+  audio.play();
+  console.log('audio is playin');
 
-
-
-
+});
+  
+</script>
 </body>
 </html>
